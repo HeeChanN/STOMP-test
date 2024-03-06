@@ -2,6 +2,7 @@ package com.study.testsocket;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.study.testsocket.dto.MessageDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +23,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+
 
 import java.nio.charset.Charset;
 import java.util.HashMap;
@@ -80,9 +82,6 @@ public class StompTest {
 
         String json = new String((byte[]) reply.getPayload(), Charset.forName("UTF-8"));
         assertEquals(json, "Ahn님 환영합니다.");
-
-
-
     }
 
     @Test
