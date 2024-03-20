@@ -11,7 +11,7 @@ import org.springframework.web.socket.config.annotation.*;
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/topic","/queue"); // 구독과 BroadCasting 을 처리
+        registry.enableSimpleBroker("/topic"); // 구독과 BroadCasting 을 처리
         registry.setApplicationDestinationPrefixes("/app"); // 메시지 전달을 할때 사용할 uri
     }
 
@@ -19,7 +19,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     /** 웹소켓 HandShake를 위한 endpoint */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws-stomp");
+        registry.addEndpoint("/ws-stomp").withSockJS();
     }
 }
 

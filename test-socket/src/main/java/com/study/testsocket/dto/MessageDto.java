@@ -9,13 +9,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class MessageDto {
-    String nickname;
-    String content;
-    String roomId;
+    private String nickname;
+    private String content;
+    private String message;
 
-    public MessageDto(String nickname, String content, String roomId) {
+    public MessageDto(String nickname, String content) {
         this.nickname = nickname;
         this.content = content;
-        this.roomId = roomId;
     }
 }
