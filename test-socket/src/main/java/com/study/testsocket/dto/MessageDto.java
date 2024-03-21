@@ -17,4 +17,8 @@ public class MessageDto {
         this.nickname = nickname;
         this.content = content;
     }
+
+    public MessageDto(String message){
+        this.message = message;
+    }
 }

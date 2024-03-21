@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -20,6 +21,12 @@ public class MessageController {
     private final SimpMessagingTemplate template;
 
     private final KafkaProducer producer;
+
+    @SubscribeMapping("/room/chat")
+    public MessageDto sub(){
+        log.info("Sub : /room/chat");
+        return new MessageDto("hello");
+    }
 
     @MessageMapping("/stomp-test")
     public void go(MessageDto message) throws Exception{
